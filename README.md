@@ -221,32 +221,6 @@ Then open: `http://127.0.0.1:8000/docs`
 
 ---
 
-## AWS deployment
-
-1. Launch `t3.micro`, Ubuntu 24.04 LTS
-2. Open ports 22, 8000 in Security Group inbound rules
-3. Connect via EC2 Instance Connect
-4. Install Docker:
-   ```bash
-   sudo apt-get update && sudo apt-get install -y docker.io docker-compose
-   sudo usermod -aG docker ubuntu && newgrp docker
-   ```
-5. Clone repo, create `.env`, pre-create DB files:
-   ```bash
-   git clone https://github.com/shail0iri/Agentic-eda-pipeline
-   cd Agentic-eda-pipeline
-   echo "GROQ_API_KEY=gsk_your_key" > .env
-   touch sessions.db cache.db
-   ```
-6. Run:
-   ```bash
-   docker compose up -d --build
-   ```
-
-For a stable address: allocate an Elastic IP in the EC2 console and associate it with the instance (free while attached to a running instance).
-
----
-
 ## Known limitations
 
 **MAX_STEPS behavior** — Llama 3.3 70B consistently finds "one more thing to check" rather than self-terminating. The hard cap of 8 steps prevents runaway API usage, but the agent often stops at the cap rather than emitting `DONE` naturally. This is a model tendency, not a harness bug.
