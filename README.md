@@ -4,8 +4,6 @@ A production-grade API that analyzes CSV files using an LLM agent. Upload a data
 
 Built layer by layer to understand every piece, not just to ship something that works.
 
-**GitHub:** https://github.com/shail0iri/Agentic-eda-pipeline
-
 ---
 
 ## What it does
