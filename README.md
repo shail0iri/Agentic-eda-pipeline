@@ -107,7 +107,7 @@ curl -X POST http://localhost:8000/ask \
 
 | Tool | Purpose | Why |
 |------|---------|-----|
-| Groq (llama-3.3-70b-versatile) | LLM inference | Fast, generous free tier |
+| Groq (qwen/qwen3.8-27b) | LLM inference | Fast, generous free tier |
 | FastAPI | Web framework | Auto-generates `/docs` test UI |
 | LangGraph | Agent loop structure | Formalizes THINK/ACT state machine |
 | SQLite | Session persistence | Zero setup, right for this scale |
@@ -221,7 +221,7 @@ Then open: `http://127.0.0.1:8000/docs`
 
 ## Known limitations
 
-**MAX_STEPS behavior** — Llama 3.3 70B consistently finds "one more thing to check" rather than self-terminating. The hard cap of 8 steps prevents runaway API usage, but the agent often stops at the cap rather than emitting `DONE` naturally. This is a model tendency, not a harness bug.
+**MAX_STEPS behavior** — The model consistently finds "one more thing to check" rather than self-terminating. The hard cap of 8 steps prevents runaway API usage, but the agent often stops at the cap rather than emitting `DONE` naturally. This is a model tendency, not a harness bug.
 
 **Sandbox not bulletproof** — creative payloads chaining `__class__.__bases__` or similar dunder-attribute paths could still reach restricted areas. The sandbox protects against the realistic failure mode (LLM accidentally writing file/network operations) but not a deliberately adversarial input.
 
