@@ -4,3 +4,4 @@ __pycache__/
 data/
 .env
 eda-key.pem
+.understand-anything/

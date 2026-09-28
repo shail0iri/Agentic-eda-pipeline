@@ -35,7 +35,7 @@ import sandbox
 
 load_dotenv()
 client = Groq(api_key=os.environ["GROQ_API_KEY"])
-MODEL = "llama-3.3-70b-versatile"
+MODEL = "qwen/qwen3.8-27b"
 MAX_STEPS = 8
 
 SYSTEM_PROMPT = """You are an EDA (exploratory data analysis) agent.
