@@ -31,6 +31,7 @@ os.makedirs(DATA_DIR, exist_ok=True)
 def on_startup():
     db.init_db()
     cache.init_cache_db()
+    cache.get_embedder()
 
 
 @app.get("/cache-stats")
